@@ -9,4 +9,4 @@ dependencies = [
 ]
 
 [project.scripts]
-tomato = "pomo_timer.main:app"
+tomato = "suba-tomato.main:app"
