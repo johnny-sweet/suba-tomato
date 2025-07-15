@@ -9,4 +9,4 @@ dependencies = [
 ]
 
 [project.scripts]
-tomato = "suba-tomato.main:app"
+tomato = "suba_tomato.main:app"
