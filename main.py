@@ -20,7 +20,7 @@ def main(working_time: Annotated[int, typer.Argument()], break_time: Annotated[i
     winsound.MessageBeep()
     
     print("Time for a break!")
-    Prompt.ask("Press any key to start the break timer")
+    Prompt.ask("Press enter to start the break timer")
     for _ in track(range(break_time * 2), description="[bold green]break period[/bold green]..."):
         time.sleep(30)
     
