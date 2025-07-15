@@ -6,7 +6,6 @@ from rich import print
 import time
 import winsound
 import sys
-import os
 
 pomo_count = 0
 
