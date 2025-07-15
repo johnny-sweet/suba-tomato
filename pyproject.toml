@@ -1,9 +1,12 @@
 [project]
 name = "suba-tomato"
 version = "0.1.0"
-description = ""
+description = "A *su*per *ba*sic (thus minimal and distraction free) Pomodoro timer for the terminal."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "typer>=0.16.0",
 ]
+
+[project.scripts]
+tomato = "pomo_timer.main:app"

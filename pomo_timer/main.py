@@ -41,5 +41,8 @@ def main(working_time: Annotated[int, typer.Argument()], break_time: Annotated[i
     else:
         print(f"You completed {pomo_count} pomodoro interval{"s" if pomo_count > 1 else ""}!")
       
-if __name__ == "__main__":
+def app():
     typer.run(main)
+
+if __name__ == "__main__":
+    app() 
