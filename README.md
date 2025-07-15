@@ -10,6 +10,8 @@ tomato 25 5
 ```
 
 This starts a 25-minute work timer, followed by a 5-minute break. Adjust the numbers as you like.
+You have to accept the break timer to begin by hitting ENTER (as it turned out to be more flexible this way).
+At the end of the break you will be asked to restart a new interval with the same settings. 
 
 ## Install Instructions
 Make sure you have pip installed: https://pip.pypa.io/en/stable/installation/
