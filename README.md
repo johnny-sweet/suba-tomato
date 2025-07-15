@@ -12,6 +12,7 @@ tomato 25 5
 This starts a 25-minute work timer, followed by a 5-minute break. Adjust the numbers as you like.
 
 ## Install Instructions
+Make sure you have pip installed: https://pip.pypa.io/en/stable/installation/
 1. Clone this repository
 2. Change into the project directory in your terminal:
    ```
