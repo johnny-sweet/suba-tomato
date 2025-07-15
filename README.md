@@ -1,4 +1,4 @@
-# Suba-Tomato: **Su**per **Ba**sic Pomodoro Timer
+# Suba-Tomato: *Su*per *Ba*sic Pomodoro Timer
 
 Suba-Tomato is a minimal, distraction-free Pomodoro timer for your terminal. It does one thing: timing work and break intervals - no stats, no clutter.
 
