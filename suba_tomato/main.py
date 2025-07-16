@@ -6,6 +6,8 @@ from rich import print
 import time
 import sys
 import os
+from rich.panel import Panel
+from rich.align import Align
 
 pomo_count = 0
 
@@ -46,8 +48,20 @@ def main(working_time: Annotated[int, typer.Argument()], break_time: Annotated[i
     global pomo_count
 
     if pomo_count == 0:
-        print(f"Working time is {working_time} minutes.")
-        print(f"Break time is {break_time} minutes.")
+        info_panel = Panel(
+            Align.center(
+            f"[bold yellow]Working time:[/bold yellow] [cyan]{working_time}[/cyan] minutes\n"
+            f"[bold green]Break time:[/bold green] [cyan]{break_time}[/cyan] minutes\n\n"
+            f"[bold magenta]POMODORO INTERVAL {pomo_count + 1}[/bold magenta]"
+            ),
+            expand=False,
+            border_style="magenta"
+        )
+        print(info_panel)
+    else:
+        print("\033c", end="")
+        interval_text = f"[bold magenta]POMODORO INTERVAL {pomo_count + 1}[/bold magenta]"
+        print(Panel(Align.center(interval_text), expand=False, border_style="magenta"))
 
     run_timer(working_time * 2, "[bold yellow]working period[/bold yellow]...")
     notify(is_break=True)
