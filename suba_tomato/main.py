@@ -5,6 +5,7 @@ from rich.prompt import Confirm, Prompt
 from rich import print
 import time
 import sys
+import os
 
 pomo_count = 0
 
@@ -12,11 +13,11 @@ def notify(is_break: bool) -> None:
     if sys.platform.startswith("win"):
         import winsound
         winsound.MessageBeep()
-    if sys.platform.startswith("darwin"):
+    elif sys.platform.startswith("darwin"):
         if is_break:
-            print("say -v Kate 'Time for a break'", end="", flush=True)
+            os.system("say -v Kate 'Time for a break'")
         else:
-            print("say -v Kate 'Break is over'", end="", flush=True)
+            os.system("say -v Kate 'Break is over'")
     else: 
         print("\a", end="", flush=True)
 
