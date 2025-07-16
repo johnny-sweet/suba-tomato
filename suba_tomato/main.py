@@ -45,8 +45,9 @@ def run_timer(total_intervals: int, description: str) -> None:
 def main(working_time: Annotated[int, typer.Argument()], break_time: Annotated[int, typer.Argument()]):
     global pomo_count
 
-    print(f"Working time is {working_time} minutes.")
-    print(f"Break time is {break_time} minutes.")
+    if pomo_count == 0:
+        print(f"Working time is {working_time} minutes.")
+        print(f"Break time is {break_time} minutes.")
 
     run_timer(working_time * 2, "[bold yellow]working period[/bold yellow]...")
     notify(is_break=True)
