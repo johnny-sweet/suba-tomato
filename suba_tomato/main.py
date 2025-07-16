@@ -8,20 +8,25 @@ import sys
 
 pomo_count = 0
 
-def notify():
+def notify(is_break: bool) -> None: 
     if sys.platform.startswith("win"):
         import winsound
         winsound.MessageBeep()
-    else:
+    if sys.platform.startswith("darwin"):
+        if is_break:
+            print("say -v Kate 'Time for a break'", end="", flush=True)
+        else:
+            print("say -v Kate 'Break is over'", end="", flush=True)
+    else: 
         print("\a", end="", flush=True)
-        
-        
-def format_time_left(seconds_left):
+
+
+def format_time_left(seconds_left: int) -> str:
     mins, secs = divmod(seconds_left, 60)
     return f"{mins:02}:{secs:02}"
 
 
-def run_timer(total_intervals, description):
+def run_timer(total_intervals: int, description: str) -> None:
     total_seconds = total_intervals * 30
     with Progress(
         TextColumn("[progress.description]{task.description}"),
@@ -43,13 +48,13 @@ def main(working_time: Annotated[int, typer.Argument()], break_time: Annotated[i
     print(f"Break time is {break_time} minutes.")
 
     run_timer(working_time * 2, "[bold yellow]working period[/bold yellow]...")
-    notify()
+    notify(is_break=True)
     
     print("Time for a break!")
     Prompt.ask("Press enter to start the break timer")
     run_timer(break_time * 2, "[bold green]break period[/bold green]...")
     
-    notify()    
+    notify(is_break=False)    
     print("Break is over! You can restart the timer if you want.")
     restart = Confirm.ask("Do you want to restart the timer?")
     pomo_count += 1
